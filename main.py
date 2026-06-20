@@ -75,7 +75,7 @@ class ChatResponse(BaseModel):
 @app.post("/chat")
 def chat(req: ChatMessage) -> ChatResponse:
     history.append({"role": "user", "content": req.message})
-    results = collection.query(query_texts=[req.message], n_results=3)
+    results = collection.query(query_texts=[req.message], n_results=6)
     context = "\n\n".join(results["documents"][0])
     system_prompt = (
         "You are Mario's support assistant. "
