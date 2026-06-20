@@ -68,8 +68,12 @@ class ChatMessage(BaseModel):
     message: str
 
 
+class ChatResponse(BaseModel):
+    reply: str
+
+
 @app.post("/chat")
-def chat(req: ChatMessage):
+def chat(req: ChatMessage) -> ChatResponse:
     history.append({"role": "user", "content": req.message})
     results = collection.query(query_texts=[req.message], n_results=3)
     context = "\n\n".join(results["documents"][0])
@@ -99,8 +103,9 @@ def chat(req: ChatMessage):
     conn.execute("""
     INSERT INTO chat_logs (timestamp, model, user_input, assistant_response, input_tokens, output_tokens, cost_usd, latency_ms)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
-                 (datetime.now().isoformat(), MODEL, req.message, reply, input_tokens, output_tokens, cost_usd, latency_ms),
+                 (datetime.now().isoformat(), MODEL, req.message, reply, input_tokens, output_tokens, cost_usd,
+                  latency_ms),
                  )
     conn.commit()
     conn.close()
-    return {"reply": reply}
+    return ChatResponse(reply=reply)
