@@ -4,6 +4,3 @@ __pycache__/
 .DS_Store
 *.pyc
 *.db
-
-# Personal reference note — keep local, not part of the repo
-ARCHITECTURE.md

@@ -1,13 +1,13 @@
 # About-Me Chatbot
 
-A retrieval-augmented (RAG) chatbot that answers questions about **Mario Christian** — his background, skills, and projects. Built as a FastAPI backend, grounded in a personal knowledge base, and deployed live.
+A retrieval-augmented (RAG) chatbot that answers questions about **Mario Christian** - his background, skills, and projects. Built as a FastAPI backend, grounded in a personal knowledge base, and deployed live.
 
 **🔗 Live API:** https://web-production-93348.up.railway.app
 **Try it interactively:** https://web-production-93348.up.railway.app/docs
 
 ## What it does
 
-- **Grounded answers (RAG):** retrieves the most relevant chunks from a personal knowledge base and answers *only* from them — so it doesn't make things up. Ask about something outside the docs and it replies *"I don't know."*
+- **Grounded answers (RAG):** retrieves the most relevant chunks from a personal knowledge base and answers *only* from them - so it doesn't make things up. Ask about something outside the docs and it replies *"I don't know."*
 - **Conversational:** keeps multi-turn history, so follow-ups like *"tell me more about that"* resolve correctly.
 - **Observability:** every turn is logged to SQLite with the model, token counts, USD cost, and latency.
 - **Typed API:** request and response are validated with Pydantic and documented automatically.
@@ -17,7 +17,7 @@ A retrieval-augmented (RAG) chatbot that answers questions about **Mario Christi
 | Layer | Tool |
 |---|---|
 | API | FastAPI (Python 3.12) |
-| LLM | Anthropic SDK — Claude Haiku 4.5 |
+| LLM | Anthropic SDK - Claude Haiku 4.5 |
 | Embeddings | OpenAI `text-embedding-3-small` |
 | Vector store | ChromaDB |
 | Validation | Pydantic |
@@ -34,7 +34,7 @@ A retrieval-augmented (RAG) chatbot that answers questions about **Mario Christi
 
 | Method | Endpoint | Body | Returns |
 |---|---|---|---|
-| GET | `/health` | — | `{"status": "ok"}` |
+| GET | `/health` | - | `{"status": "ok"}` |
 | POST | `/chat` | `{"message": "..."}` | `{"reply": "..."}` |
 
 ## Run locally
@@ -49,18 +49,18 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-# 3. API keys — copy the example and fill in your keys
+# 3. API keys - copy the example and fill in your keys
 cp .env.example .env
 #   ANTHROPIC_API_KEY=...
 #   OPENAI_API_KEY=...
 
-# 4. (Optional) Rebuild the vector store — the repo already ships chroma/,
+# 4. (Optional) Rebuild the vector store - the repo already ships chroma/,
 #    but if you edit data/about_mario.md, rebuild it:
 python ingest.py
 
 # 5. Run the server
 python -m uvicorn main:app --reload
-#   → http://localhost:8000/docs
+#   -> http://localhost:8000/docs
 ```
 
 ## Tests
