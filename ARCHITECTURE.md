@@ -171,9 +171,7 @@ chunking strategy (size/overlap).
 
 ## ❌ Deliberately NOT decided at the sketch stage
 
-Syntax, function names, exact arguments. That's handled **while coding** -> docs /
-AI / autocomplete. (This is the "high-pass at 100hz" - decided on the fly, not
-during planning.)
+Syntax, function names, exact arguments. That's handled **while coding**, decided on the fly, not during planning.
 
 ---
 
