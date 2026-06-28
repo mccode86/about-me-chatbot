@@ -1,4 +1,4 @@
-# 🗺️ Architecture - About-Me / Docs Chatbot
+# Architecture - About-Me / Docs Chatbot
 
 > A reference for myself. This is the **sketch made before writing any code**,
 > plus one level of extra detail. Every box has a **"Under the hood"** note, so
